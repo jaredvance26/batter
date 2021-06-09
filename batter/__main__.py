@@ -33,6 +33,7 @@ def main(screen):
             brick.set_position(position)
             cast["brick"].append(brick)
 
+
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y / 2)
     position = Point(x, y)
