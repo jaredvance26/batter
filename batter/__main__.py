@@ -15,6 +15,15 @@ def main(screen):
 
     # create the cast {key: tag, value: list}
     cast = {}
+    
+    x = 1
+    y = 0
+    position = Point(x,y)
+    score = Actor()
+    points = score.get_score()
+    score.set_text(f"Score: {points}")
+    score.set_position(position)
+    cast["score"] = [score]
 
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y - 1)
