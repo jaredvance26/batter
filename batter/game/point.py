@@ -82,3 +82,9 @@ class Point:
         x = self._x * 1
         y = self._y * -1
         return Point(x, y)
+
+    def on_wall_hit(self):
+        """ Stuff """
+        x = self._x * -1
+        y = self._y * 1
+        return Point(x, y)

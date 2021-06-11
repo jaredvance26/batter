@@ -39,4 +39,10 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add your names and emails here
+Jared Vance, jaredkvance@gmail.com
+
+Brandon Densmore, den18017@byui.edu
+
+Shandler Rechenberger, ShanRechenberger@gmail.com
+
+Alex Mudaliar, awsmudaliar@outlook.com
