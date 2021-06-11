@@ -34,8 +34,13 @@ class HandleCollisionsAction(Action):
         
         ball_pos = ball.get_position()
         paddle_pos = paddle.get_position()
+
         if ball_pos.get_x() in range(paddle_pos.get_x(),paddle_pos.get_x()+11) and ball_pos.get_y() == paddle_pos.get_y() - 1:
             velocity = ball.get_velocity().on_brick_hit()
+            return ball.set_velocity(velocity)
+
+        if ball_pos.get_x() == constants.MAX_X - 1 or ball_pos.get_x() == 1:
+            velocity = ball.get_velocity().on_wall_hit()
             return ball.set_velocity(velocity)
 
         if ball_pos.get_y() == constants.MAX_Y - 1:
