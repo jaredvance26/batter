@@ -1,3 +1,4 @@
+
 import random
 from game import constants
 from game.director import Director
@@ -10,17 +11,29 @@ from game.move_actors_action import MoveActorsAction
 from game.input_service import InputService
 from game.output_service import OutputService
 from asciimatics.screen import Screen 
+from colorama import Fore
 
 def main(screen):
 
     # create the cast {key: tag, value: list}
     cast = {}
 
+
+    x = 1
+    y = 0
+    position = Point(x,y)
+    score = Actor()
+    score.set_score(0)
+    points = score.get_score()
+    score.set_text(f"Score: {points}")
+    
+    score.set_position(position)
+    cast["score"] = [score]
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y - 1)
     position = Point(x, y)
     paddle = Actor()
-    paddle.set_text("===========")
+    paddle.set_text(f"===========")
     paddle.set_position(position)
     cast["paddle"] = [paddle]
 
@@ -39,11 +52,12 @@ def main(screen):
     position = Point(x, y)
     velocity = Point(1, -1)
     ball = Actor()
-    ball.set_text("@")
+    ball.set_text(f"{Fore.RED}(O){Fore.RESET}")
     ball.set_position(position)
     ball.set_velocity(velocity)
     cast["ball"] = [ball]
-    
+
+
     # create the script {key: tag, value: list}
     script = {}
 
@@ -51,11 +65,12 @@ def main(screen):
     output_service = OutputService(screen)
     control_actors_action = ControlActorsAction(input_service)
     move_actors_action = MoveActorsAction()
-    handle_collisions_acition = HandleCollisionsAction()
+    handle_collisions_action = HandleCollisionsAction()
     draw_actors_action = DrawActorsAction(output_service)
     
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action, handle_collisions_acition]
+    script["update"] = [move_actors_action, handle_collisions_action]
+    
     script["output"] = [draw_actors_action]
 
     # start the game
