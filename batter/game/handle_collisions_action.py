@@ -24,19 +24,31 @@ class HandleCollisionsAction(Action):
         paddle = cast["paddle"][0] # there's only one
         ball = cast["ball"][0]
         bricks = cast["brick"]
+        score = cast["score"][0]
+
     
     
         
-        for count, brick in enumerate(bricks):
 
+        for count, brick in enumerate(bricks):
     
             if ball.get_position().equals(brick.get_position()):
                 velocity = ball.get_velocity().on_brick_hit()
                 bricks.pop(count)  
-                return ball.set_velocity(velocity)
 
+                return ball.set_velocity(velocity)
+                
+        for count, brick in enumerate(bricks):
+
+            if ball.get_position().equals(brick.get_position()):
+                points = int(score.get_score())
+                points =+ 1
+                
+                return points
             
         
+
+
         ball_pos = ball.get_position()
         paddle_pos = paddle.get_position()
         if ball_pos.get_x() in range(paddle_pos.get_x(),paddle_pos.get_x()+11) and ball_pos.get_y() == paddle_pos.get_y() - 1:

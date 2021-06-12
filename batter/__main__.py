@@ -23,12 +23,11 @@ def main(screen):
     y = 0
     position = Point(x,y)
     score = Actor()
-    score.set_score(0)
     points = score.get_score()
     score.set_text(f"Score: {points}")
-    
     score.set_position(position)
     cast["score"] = [score]
+
     x = int(constants.MAX_X / 2)
     y = int(constants.MAX_Y - 1)
     position = Point(x, y)
