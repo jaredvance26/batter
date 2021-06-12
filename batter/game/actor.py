@@ -55,7 +55,7 @@ class Actor:
 
 
     def get_score(self):
-
+        """ Returns score """
         return self._score
     
     def set_description(self, description):
@@ -91,4 +91,5 @@ class Actor:
         self._velocity = velocity
 
     def set_score(self, score):
+        """ Sets the score """
         self._score = score
